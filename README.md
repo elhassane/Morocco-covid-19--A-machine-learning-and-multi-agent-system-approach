@@ -25,7 +25,7 @@ The project is built using a combination of restful and multi agent architechtur
 ### Smart layer
 This is a Flask based REST api containing all the scripts needed to scraping, pre-processing and loading data into a Mongodb database in addition to all the models we have developed for clustering, predictions, sentimental analysis and visualizations.
 ### Multi Agent System (MAS) layer 
-This is a REST api based on SpringBoot containing JADE Framework with all our agents, and their behaviours and how they communicate with each other and 
+This is a REST api based on SpringBoot containing JADE Framework with all agents, and their behaviours and how they communicate with each other and 
 how they serve the SPA frontend layer.
 ### Single Page Application (SPA) layer
 This is the front-end part which contains pages for each agent (clustering, predictions, sentimental analysis and data visualisation), each page communicates with it's own appropriate agent using a restful architecture.
