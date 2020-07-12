@@ -1,6 +1,6 @@
 # Morocco covid-19: A machine learning and multi-agent system approach
 
-This project is a class project (for learning purposes) as a part of Multi agents systems and Machine learning classes at The Faculty of Sciences and Technologies Tangier
+This project is a class project (for learning purposes) as a part of Multi agents systems and Machine learning class at The Faculty of Sciences and Technologies of Tangier
 
 ## Objective
 
