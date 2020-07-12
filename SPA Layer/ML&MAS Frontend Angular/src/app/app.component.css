@@ -1,0 +1,13 @@
+
+body{
+    background-color: #ccc;
+}
+
+.MyContainer{
+    margin-top: 30px;
+    margin-left: 30px;
+
+    width: 95%;
+    /* height: 600px; */
+    background-color: black;
+}

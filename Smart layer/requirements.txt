@@ -1,0 +1,18 @@
+
+1- Make sure you have installed all the necessary libraries:
+pip install flask
+pip install pymongo
+pip install scikit-learn
+pip install flair 
+pip install pandas
+
+p.s1: flair is built with pytorch, so it requires torch version >=1.5
+------
+2 -make sure to create a mongodb database called "covML" and the used collections:
+scrapedData
+dataCollection
+regionsData
+MAtimeSeries
+----
+4 -run the file app.py 
+p.s2: flair needs to download a 260Mb file "sentiment-en-mix-distillbert".

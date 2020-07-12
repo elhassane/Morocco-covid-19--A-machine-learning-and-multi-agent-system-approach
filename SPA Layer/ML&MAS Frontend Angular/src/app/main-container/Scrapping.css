@@ -1,0 +1,67 @@
+.txt{
+    font-size: 4.5em;
+    color: white;
+}
+.slider {
+    max-width: 600px;
+    height: 400px;
+   
+    align-items: center;
+    margin: 20px auto;
+    position: relative;
+    
+  }
+  .slide1,.slide2,.slide3,.slide4,.slide5 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .slide1 {
+      
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: no-repeat center;
+        background-size: cover;
+      animation:fade 15s infinite;
+  -webkit-animation:fade 15s infinite;
+  
+  } 
+  .slide2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: no-repeat center;
+        background-size: cover;
+      animation:fade2 15s infinite;
+  -webkit-animation:fade2 15s infinite;
+  }
+  .slide3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        background-size: cover;
+      animation:fade3 11s infinite;
+  -webkit-animation:fade3 11s infinite;
+  }
+  @keyframes fade
+  {
+    0%   {opacity:1}
+    33.333% { opacity: 0}
+    66.666% { opacity: 0}
+    100% { opacity: 1}
+  }
+  @keyframes fade2
+  {
+    0%   {opacity:0}
+    33.333% { opacity: 1}
+    66.666% { opacity: 0 }
+    100% { opacity: 0}
+  }
+  @keyframes fade3
+  {
+    0%   {opacity:0}
+    33.333% { opacity: 0}
+    66.666% { opacity: 1}
+    100% { opacity: 0}
+  }

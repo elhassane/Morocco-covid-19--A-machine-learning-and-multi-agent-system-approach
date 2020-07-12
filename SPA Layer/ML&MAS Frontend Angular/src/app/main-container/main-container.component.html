@@ -1,0 +1,362 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+<aside class="side-nav" id="show-side-navigation1">
+
+  <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+  <div class="heading">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">
+           <span style="font-size : 1em">Morocco </span>
+          <span style="font-size : 2em" class="main-color">covid-19</span>
+          </a>
+      </div>
+  </div>
+  <div class="search">
+    <input style="border : 1px solid white; border-radius: 7%" type="text" placeholder="Type here"><i class="fa fa-search"></i>
+  </div>
+  <ul class="categories">
+    <li>
+      <i  class="fa fa-home fa-fw" aria-hidden="true"></i><a (click)="ChangeSelector('Home')" href="#">Data Visualization</a>
+    </li>
+    <li>
+      <i class="fa fa-comments-o fa-fw"></i><a (click)="ChangeSelector('Scrapping')" href="#">Sentiment Analysis</a>
+    </li>
+    <li>
+      <i class="fa fa-users fa-fw"></i><a (click)="ChangeSelector('Clusters')" href="#">Clustering</a>
+    </li>
+    <li>
+      <i class="fa fa-support fa-fw"></i><a (click)="ChangeSelector('Prediction')" href="#">Prediction</a>
+    </li>
+    <li><i class="fa fa-envelope fa-fw"></i><a href="#"> Contact us</a>
+      <ul class="side-nav-dropdown">
+        <li><a href="#">Email : ---------------</a></li>
+        <li><a href="#">Tel : ---------------</a></li>
+        <li><a href="#">Addresse : ---------------</a></li>
+      </ul>
+    </li>
+    
+  </ul>
+</aside>
+<section style="min-height : 762px;" id="contents">
+
+  <div *ngIf=" selector == 'Home' "> 
+
+    <div class="welcome">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              <div style="display:flex; justify-content:space-between">
+                <div>
+                  <h2>Welcome to Morocco covid 19 Dashboard</h2>
+                  <p>Select an option from the menu to visualise the dashboard.</p>
+                </div>
+                  <button (click)="StartScrapping('visualization')" style="color:gray; radius:100% ;background-color:white; width:150px; height:30px; margin-top:20px" mat-button color="primary">Scrappe new data !</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="statistics">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box">
+              <i class="fa fa-globe fa-fw bg-danger"></i>
+              <div class="info">
+                <h3>568K</h3> <span> Deaths</span>
+                <p>Deaths around the world.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <i class="fa fa-certificate fa-fw warning"></i>
+              <div class="info">
+                <h3>12.8M</h3> <span> Cases</span>
+                <p>Cases around the world.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <i class="fa fa-medkit fa-fw success"></i>
+              <div class="info">
+                <h3>7,5M</h3> <span> Recovered</span>
+                <p>Recovered around the world.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div style="background-color: #D9E4EC;" class="chart-container">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="background-color: #D9E4EC;" class="chart-container">
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class='statis text-center'>
+      <div class="container-fluid">
+        <div class="row">
+          
+          <div class="col-md-3">
+            <div class="box warning">
+              <i class="fa fa-bug"></i>
+              <h3>{{nCases}}</h3>
+              <p class="lead">Confirmed cases</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box success">
+              <i class="fa fa-handshake-o"></i>
+              <h3>{{nCured}}</h3>
+              <p class="lead">Recovered</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box bg-primary">
+              <i class="fa fa-eye"></i>
+              <h3>{{nActive}}</h3>
+              <p class="lead">Active cases</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="box danger">
+              <i class="fa fa-user-o"></i>
+              <h3>{{nDeaths}}</h3>
+              <p class="lead">Deaths</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- |_________________________ Clusters __________________________________| -->
+  <div *ngIf=" selector == 'Clusters'">
+    <div class="welcome">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              <div style="display:flex; justify-content:space-between">
+                <div>
+                  <h2>Welcome to Clustering agent</h2>
+                  <p>Here you can see all statistics based on clusters of regions.</p>
+                </div>
+                  <button (click)="StartScrapping('clustering')" style="color:gray; radius:100% ;background-color:white; width:150px; height:30px; margin-top:20px" mat-button color="primary">Scrappe new data !</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="charts">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="chart-container">
+              <h3>Cases situation in Morocco based on regions</h3>
+              <canvas id="myChartCluster"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="chart-container">
+              <h3>Cases situation in Morocco</h3>
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="padding-bottom:100px"  class="charts">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <div style="background-color: #EDF2F3; margin-left:150px; width:100%"  class="chart-container">
+              <h3 style="color : #434343">Cases situation in Morocco based on Clusters</h3>
+              <canvas id="bubbleChart"></canvas>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- |_________________________ Scrapping __________________________________| -->
+  <div *ngIf=" selector == 'Scrapping'">
+
+    <div class="welcome">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              <div style="display:flex; justify-content:space-between">
+                <div>
+                  <h2>Welcome to Sentiment analysis agent</h2>
+                  <p>Scrap new updated data and do some sentiments analysis.</p>
+                </div>
+                  <button (click)="StartScrapping('sentiment')" style="color:gray; radius:100% ;background-color:white; width:150px; height:30px; margin-top:20px" mat-button color="primary">Scrappe new data !</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <section style="margin-left:10%" class="charts">
+      <div style="display:flex" class="container-fluid">
+        <div class="row">
+          <div style="margin-bottom: -15px" class="col-md-11">
+            <div class="chart-container">
+              <h3 style="font-weight:bolder; color:white" >Moroccan news sentiment analysis</h3>
+              <canvas id="newsChart"></canvas>              
+            </div>
+          </div>        
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-left:10%" class="charts">
+      <div style="display:flex" class="container-fluid">
+        <div class="row">
+          <div style="margin-bottom: -15px" class="col-md-11">
+            <div   class="chart-container">
+              <h3 style="font-weight:bolder; color:white" >Try it out!</h3>
+              <div style="display:flex; justify-content: space-between">
+                <div style="width:100%">
+                  <mat-form-field style="width:70%" class="example-full-width">
+                    <mat-label>Enter a phrase to analyze it and see if it positive or negative !</mat-label>
+                    <input  min="0" [(ngModel)]="strToAnalyze" placeholder="Ex: Tomorrow will be great !"  type="text" matInput >
+                  </mat-form-field>
+                    <p>Sentiment : {{sentimentState}} , Confidence: {{confidence}}%</p>
+                </div>
+                <button (click)="AnalyzePhrase()" style="color:black;background-color:#eadecb; margin-top:12px; width:100px; height:30px" mat-raised-button color="primary">Analyze!</button>
+              </div>  
+              <hr style="margin-top: 10px;margin-bottom: 10px;">
+              <div style="display:flex;" >
+                <div style="padding-top: 12px; margin-right:12px">
+                    Select the number of news : 
+                </div>
+                <div>
+                  <mat-slider                
+                  thumbLabel
+                  (change)="setNewsNumber($event )"
+                  [displayWith]="formatLabel"
+                  tickInterval="100"
+                  min="1"
+                  max="160"></mat-slider>
+                </div>
+              </div>
+              <div style="display:flex; justify-content: space-between" >
+                <div style="display:flex;">
+                  <div style="padding-top: 12px; margin-left:12px;margin-right:5px; font-weight:800">
+                    Negative
+                  </div>
+                  <mat-slide-toggle (change)="setPositiveValue($event )"  style="padding-top: 12px;"> Positive</mat-slide-toggle>
+                </div>
+                <div style="padding-top: 9px">
+                  <button (click)="getNews()" style="color:blue;background-color:white; width:100px; height:30px" mat-raised-button color="primary">Get news!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
+    <table style="background-color:white; width:90%; margin:auto; margin-top:40px; padding-bottom:80px" class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Headline content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataNews; let i = index">
+          <th scope="row">{{i+1}}</th>
+         
+          <td>{{item.headline}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <!-- |_________________________ Prediction __________________________________| -->
+  <div *ngIf=" selector == 'Prediction'">
+
+    <div class="welcome">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              
+              <div style="display:flex; justify-content:space-between">
+                <div>
+                  <h2>Welcome to Prediction</h2>
+                   <p>Based on a trained model you can now predict the number of deaths based on cases.</p>
+                </div>
+                  <button (click)="StartScrapping('prediction')" style="color:gray; radius:100% ;background-color:white; width:150px; height:30px; margin-top:20px" mat-button color="primary">Scrappe new data !</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="margin-left:10%" class="charts">
+      <div style="display:flex" class="container-fluid">
+        <div class="row">
+          <div style="margin-bottom: -15px" class="col-md-11">
+            <div class="chart-container">
+              <h5 style="margin-bottom: 12px">Enter a number of cases and click Predict! to get the approximatly number of deaths</h5>
+              <canvas id="predictChart"></canvas>              
+            </div>
+          </div>        
+          <div class="col-md-11">
+            <div class="chart-container">
+              <div style="display:flex; justify-content: space-between">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Enter number of cases</mat-label>
+                  <input  min="0" [(ngModel)]="nToPredict"  type="number" matInput value="{{nToPredict}}">
+                </mat-form-field>
+                <button (click)="predictDeaths()" style="color:blue;background-color:white; margin-top:12px; width:100px; height:30px" mat-raised-button color="primary">Predict!</button>
+              </div>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<a  (click)="resize()" href="#" class="link-to-portfolio" ></a>
+<script src="mainContainer.js"></script>
+</section>
+
