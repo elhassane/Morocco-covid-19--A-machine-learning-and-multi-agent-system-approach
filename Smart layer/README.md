@@ -37,8 +37,7 @@ p.s: Flair needs to download a 260Mb file "sentiment-en-mix-distillbert".
 ```
 @app.route('/api/v1/scrapNews', methods=['GET']) :
 ```
-nécessite un paramètre "nombre de pages" pour commencer à scraper les titres
-des actualités du site web source "maroc world news".
+requires paramrter  "number of pages" in order to start scrapping news titles from "maroc world news".
 ```
 @app.route('/api/v1/preprocessing', methods=['GET'])
 ```
